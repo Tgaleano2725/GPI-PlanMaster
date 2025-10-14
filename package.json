@@ -1,0 +1,31 @@
+{
+  "name": "gpi-planmaster",
+  "version": "1.1.0",
+  "description": "Cronograma visual interactivo para Gestión de Proyectos Informáticos - UAA",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "deploy": "echo 'Deploy to GitHub Pages or Netlify'",
+    "test": "echo 'No tests configured'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/GPI-PlanMaster.git"
+  },
+  "keywords": [
+    "cronograma",
+    "gantt",
+    "pmbok",
+    "scrum",
+    "gestion-proyectos",
+    "uaa",
+    "info-783"
+  ],
+  "author": "Tobias González <tu.email@uaa.edu.py>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tu-usuario/GPI-PlanMaster/issues"
+  },
+  "homepage": "https://tu-usuario.github.io/GPI-PlanMaster/"
+}

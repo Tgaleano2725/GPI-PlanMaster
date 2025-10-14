@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>GPI-PlanMaster - Cronograma Visual Interactivo | INFO-783 UAA</title>
+    <meta name="title" content="GPI-PlanMaster - Cronograma Visual Interactivo | INFO-783 UAA">
+    <meta name="description" content="Sistema de gestión de proyectos informáticos con cronograma visual interactivo. 184 actividades, metodología híbrida PMBOK + Scrum. Universidad Autónoma de Asunción.">
+    <meta name="keywords" content="gestión proyectos, cronograma, gantt, PMBOK, Scrum, UAA, INFO-783, planificación, Tobias González">
+    <meta name="author" content="Tobias González">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tu-usuario.github.io/GPI-PlanMaster/">
+    <meta property="og:title" content="GPI-PlanMaster - Cronograma Visual Interactivo">
+    <meta property="og:description" content="Sistema de gestión de proyectos con 184 actividades, metodología PMBOK + Scrum. Universidad Autónoma de Asunción.">
+    <meta property="og:image" content="https://tu-usuario.github.io/GPI-PlanMaster/assets/images/preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tu-usuario.github.io/GPI-PlanMaster/">
+    <meta property="twitter:title" content="GPI-PlanMaster - Cronograma Visual Interactivo">
+    <meta property="twitter:description" content="Sistema de gestión de proyectos con metodología híbrida PMBOK + Scrum">
+    <meta property="twitter:image" content="https://tu-usuario.github.io/GPI-PlanMaster/assets/images/preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon.ico">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>📊 Sistema de Gestión de Proyectos Informáticos</h1>
+            <p class="subtitle">Universidad Autónoma de Asunción (UAA) - INFO-783</p>
+            <p class="author">Autor: Tobias González | Metodología: PMBOK 7ª Ed. + Scrum</p>
+        </div>
+    </header>
+
+    <!-- Project Summary -->
+    <section class="project-summary">
+        <div class="container">
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="card-icon">📅</div>
+                    <div class="card-content">
+                        <h3>Duración</h3>
+                        <p>9 meses (40 semanas)</p>
+                        <span class="detail">180 días hábiles</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">💰</div>
+                    <div class="card-content">
+                        <h3>Presupuesto</h3>
+                        <p>₲ 130.020.000</p>
+                        <span class="detail">1,873 horas totales</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">📋</div>
+                    <div class="card-content">
+                        <h3>Actividades</h3>
+                        <p>184 actividades</p>
+                        <span class="detail">60 casos de uso</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">🚀</div>
+                    <div class="card-content">
+                        <h3>Sprints</h3>
+                        <p>6 sprints x 4 semanas</p>
+                        <span class="detail">Metodología Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs-nav">
+        <div class="container">
+            <button class="tab-btn active" data-tab="resumen">📊 Resumen</button>
+            <button class="tab-btn" data-tab="timeline">📅 Línea de Tiempo</button>
+            <button class="tab-btn" data-tab="gantt">📈 Diagrama de Gantt</button>
+            <button class="tab-btn" data-tab="hitos">🎯 Hitos</button>
+        </div>
+    </nav>
+
+    <!-- Tab Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Resumen Tab -->
+            <div id="resumen" class="tab-content active">
+                <h2>📊 Resumen del Proyecto</h2>
+                
+                <div class="phase-section">
+                    <div class="phase-header fase-iniciacion">
+                        <h3>🎯 1.0 FASE DE INICIACIÓN</h3>
+                        <span class="phase-duration">10 días | 3-14 Mar 2025</span>
+                    </div>
+                    <div class="activities-list" id="fase-iniciacion"></div>
+                </div>
+
+                <div class="phase-section">
+                    <div class="phase-header fase-planificacion">
+                        <h3>📋 2.0 FASE DE PLANIFICACIÓN</h3>
+                        <span class="phase-duration">20 días | 17 Mar - 11 Abr 2025</span>
+                    </div>
+                    <div class="activities-list" id="fase-planificacion"></div>
+                </div>
+
+                <div class="phase-section">
+                    <div class="phase-header fase-ejecucion">
+                        <h3>⚙️ 3.0 FASE DE EJECUCIÓN (6 SPRINTS)</h3>
+                        <span class="phase-duration">120 días | 14 Abr - 3 Oct 2025</span>
+                    </div>
+                    
+                    <!-- Sprint 1 -->
+                    <div class="sprint-section sprint-1">
+                        <h4>🚀 Sprint 1: Autenticación y Perfiles (20 días)</h4>
+                        <div class="activities-list" id="sprint-1"></div>
+                    </div>
+
+                    <!-- Sprint 2 -->
+                    <div class="sprint-section sprint-2">
+                        <h4>🚀 Sprint 2: Gestión de Proyectos (20 días)</h4>
+                        <div class="activities-list" id="sprint-2"></div>
+                    </div>
+
+                    <!-- Sprint 3 -->
+                    <div class="sprint-section sprint-3">
+                        <h4>🚀 Sprint 3: Gestión de Tareas (20 días)</h4>
+                        <div class="activities-list" id="sprint-3"></div>
+                    </div>
+
+                    <!-- Sprint 4 -->
+                    <div class="sprint-section sprint-4">
+                        <h4>🚀 Sprint 4: Recursos y Costos (20 días)</h4>
+                        <div class="activities-list" id="sprint-4"></div>
+                    </div>
+
+                    <!-- Sprint 5 -->
+                    <div class="sprint-section sprint-5">
+                        <h4>🚀 Sprint 5: Riesgos y Calidad (20 días)</h4>
+                        <div class="activities-list" id="sprint-5"></div>
+                    </div>
+
+                    <!-- Sprint 6 -->
+                    <div class="sprint-section sprint-6">
+                        <h4>🚀 Sprint 6: Reportes y Dashboards (20 días)</h4>
+                        <div class="activities-list" id="sprint-6"></div>
+                    </div>
+                </div>
+
+                <div class="phase-section">
+                    <div class="phase-header fase-control">
+                        <h3>🔍 4.0 FASE DE CONTROL Y SEGUIMIENTO</h3>
+                        <span class="phase-duration">120 días (Paralelo) | 14 Abr - 3 Oct 2025</span>
+                    </div>
+                    <div class="activities-list" id="fase-control"></div>
+                </div>
+
+                <div class="phase-section">
+                    <div class="phase-header fase-cierre">
+                        <h3>✅ 5.0 FASE DE CIERRE</h3>
+                        <span class="phase-duration">20 días | 6-31 Oct 2025</span>
+                    </div>
+                    <div class="activities-list" id="fase-cierre"></div>
+                </div>
+            </div>
+
+            <!-- Timeline Tab -->
+            <div id="timeline" class="tab-content">
+                <h2>📅 Línea de Tiempo Completa</h2>
+                <div class="timeline-controls">
+                    <button class="filter-btn" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="hitos">Solo Hitos</button>
+                    <button class="filter-btn" data-filter="iniciacion">Iniciación</button>
+                    <button class="filter-btn" data-filter="planificacion">Planificación</button>
+                    <button class="filter-btn" data-filter="ejecucion">Ejecución</button>
+                    <button class="filter-btn" data-filter="control">Control</button>
+                    <button class="filter-btn" data-filter="cierre">Cierre</button>
+                </div>
+                <div id="timeline-container" class="timeline-container"></div>
+            </div>
+
+            <!-- Gantt Tab -->
+            <div id="gantt" class="tab-content">
+                <h2>📈 Diagrama de Gantt Interactivo</h2>
+                <div class="gantt-controls">
+                    <label>
+                        <input type="checkbox" id="show-all-activities" checked> Mostrar todas las actividades
+                    </label>
+                    <label>
+                        <input type="checkbox" id="show-only-phases"> Solo fases principales
+                    </label>
+                    <button id="zoom-in">🔍 Zoom +</button>
+                    <button id="zoom-out">🔍 Zoom -</button>
+                    <button id="reset-gantt">🔄 Reiniciar vista</button>
+                </div>
+                <div id="gantt-chart" class="gantt-chart"></div>
+            </div>
+
+            <!-- Hitos Tab -->
+            <div id="hitos" class="tab-content">
+                <h2>🎯 Hitos del Proyecto</h2>
+                <div id="milestones-container" class="milestones-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tobias González | Universidad Autónoma de Asunción (UAA)</p>
+            <p>Proyecto Final - INFO-783: Gestión de Proyectos Informáticos</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
