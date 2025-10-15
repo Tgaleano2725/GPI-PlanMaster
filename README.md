@@ -2,9 +2,9 @@
 
 [![Licencia: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Estado: Activo](https://img.shields.io/badge/Status-Active-success.svg)]()
-[![Versión](https://img.shields.io/badge/Version-1.0.0-blue.svg)]()
+[![Versión](https://img.shields.io/badge/Version-1.2.0-blue.svg)]()
 
-> Cronograma visual interactivo para el proyecto académico de Gestión de Proyectos Informáticos
+> Sistema completo de gestión de proyectos con cronograma visual, EDT, KPIs y control económico (EVM)
 
 ## 🎓 Información Académica
 
@@ -16,7 +16,7 @@
 
 ## 🚀 Demo en Vivo
 
-🔗 **[Ver Cronograma Visual](https://tu-usuario.github.io/GPI-PlanMaster/)**
+🔗 **[Ver Cronograma Visual](https://tgaleano2725.github.io/GPI-PlanMaster/)**
 
 ## � Descripción
 
@@ -40,10 +40,12 @@ Sistema informático de gestión de proyectos que implementa una metodología h�
 - 🔄 **Metodología Híbrida** - PMBOK 7ª Edición + Scrum (6 sprints × 4 semanas)
 - 📦 **60 Casos de Uso Distribuidos** - Autenticación, Proyectos, Tareas, Recursos, Riesgos y Reportes
 - 💰 **Gestión de Presupuesto** - ₲ 130.020.000
+- 📊 **KPIs y Control Económico** - EVM (PV, EV, AC, CPI, SPI) con Chart.js
+- 📉 **Gráficos Interactivos** - Visualización de métricas con líneas y barras
 - 🧱 **EDT Ultra Moderna** - Estructura de Desglose del Trabajo con diseño glassmorphism
 - ⚖️ **Términos y Condiciones** - Documentación legal completa (MIT License)
 - 📱 **100% Responsive** - Diseño adaptado a móvil, tablet y desktop
-- 🎨 **Diseño Profesional** - UI/UX moderna con paleta de colores pastel
+- 🎨 **Diseño Profesional** - UI/UX moderna con paleta de colores pastel y glassmorphism
 - 💾 **Datos JSON Estructurados** - Base de datos estática con información completa
 - ⚡ **Alto Rendimiento** - Lazy loading, GPU acceleration, GZIP compression
 
@@ -53,10 +55,12 @@ Sistema informático de gestión de proyectos que implementa una metodología h�
 GPI-PlanMaster/
 ├── index.html                 # Página principal
 ├── css/
-│   └── styles.css            # Estilos optimizados (1800+ líneas)
+│   └── styles.css            # Estilos optimizados (2374 líneas)
 ├── js/
 │   ├── data.js               # Carga y procesa datos
 │   ├── app.js                # Lógica con lazy loading
+│   ├── kpi.js                # Sistema KPI y EVM
+│   ├── kpi-data.js           # Datos de KPIs (sprints, roles, presupuesto)
 │   └── cronograma-data.json  # Base de datos del proyecto
 ├── assets/
 │   └── images/               # Imágenes y recursos
@@ -64,9 +68,14 @@ GPI-PlanMaster/
 │   ├── CRONOGRAMA_DETALLADO.md
 │   ├── cronograma.csv
 │   └── cronograma.json
+├── .github/
+│   └── workflows/
+│       └── deploy.yml        # GitHub Actions para deployment
 ├── .htaccess                 # Optimización de servidor
 ├── .gitignore
 ├── README.md
+├── KPI_DOCUMENTATION.md      # Documentación completa de KPIs
+├── KPI_VALIDATION_CHECKLIST.md # Checklist de validación
 ├── PERFORMANCE.md            # Documentación de optimizaciones
 ├── LICENSE                   # MIT License
 └── netlify.toml              # Configuración para Netlify
@@ -98,7 +107,7 @@ Simplemente accede al enlace de la demo en vivo.
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/tu-usuario/GPI-PlanMaster.git
+git clone https://github.com/Tgaleano2725/GPI-PlanMaster.git
 
 # Navegar al directorio
 cd GPI-PlanMaster
@@ -147,6 +156,18 @@ open http://localhost:8000
 - **10 Hitos Críticos**: Puntos de control del proyecto
 - **Vista de Lista**: Fecha, nombre y descripción
 - **Indicadores Visuales**: Iconos y colores distintivos
+
+### 📊 KPIs y Control Económico (EVM)
+- **Métricas PMBOK**: Valor Planificado (PV), Valor Ganado (EV), Costo Real (AC)
+- **Índices de Rendimiento**: CPI (Cost Performance Index) y SPI (Schedule Performance Index)
+- **Tabla de Sprints**: Resumen detallado de 6 sprints con progreso y estado
+- **Gráficos Chart.js**: 
+  - Línea acumulada (PV vs EV vs AC)
+  - Barras comparativas (PV vs AC por sprint)
+- **Datos Oficiales**: Tarifas exactas según documento oficial del proyecto
+  - 7 roles especializados (PM, Analista, Backend, Frontend, QA, UX, DevOps)
+  - Presupuesto total: ₲130,020,000
+  - 40 semanas, 180 días de trabajo
 
 ## 📦 Deployment
 
@@ -234,9 +255,9 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 **Tobias González**
 
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
+- GitHub: [@Tgaleano2725](https://github.com/Tgaleano2725)
 - Universidad: Universidad Autónoma de Asunción (UAA)
-- Email: tu.email@uaa.edu.py
+- Proyecto: GPI-PlanMaster v1.2.0
 
 ## 🙏 Agradecimientos
 
@@ -246,7 +267,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 ## 📞 Contacto
 
-¿Preguntas o sugerencias? Abre un [Issue](https://github.com/tu-usuario/GPI-PlanMaster/issues) o contacta directamente.
+¿Preguntas o sugerencias? Abre un [Issue](https://github.com/Tgaleano2725/GPI-PlanMaster/issues) o contacta directamente.
 
 ---
 
