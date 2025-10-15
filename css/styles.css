@@ -1796,3 +1796,578 @@ body {
         padding: 1.5rem;
     }
 }
+
+/* ================================
+   KPIs y Control Económico
+   ================================ */
+
+.kpis-description {
+    text-align: center;
+    color: #667eea;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* Summary Cards */
+.kpis-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.kpi-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    opacity: 0.7;
+}
+
+.kpi-card-pv::before {
+    background: linear-gradient(90deg, #667eea, #43a6f5);
+}
+
+.kpi-card-ev::before {
+    background: linear-gradient(90deg, #43e97b, #38f9d7);
+}
+
+.kpi-card-ac::before {
+    background: linear-gradient(90deg, #fa709a, #fee140);
+}
+
+.kpi-card-cpi::before {
+    background: linear-gradient(90deg, #764ba2, #f093fb);
+}
+
+.kpi-card-spi::before {
+    background: linear-gradient(90deg, #f093fb, #f5576c);
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
+}
+
+.kpi-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-card-content h3 {
+    font-size: 0.9rem;
+    color: #667eea;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-card-title {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.75rem;
+}
+
+.kpi-card-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.kpi-good {
+    color: #43e97b;
+    font-weight: 700;
+}
+
+.kpi-warning {
+    color: #ffa726;
+    font-weight: 700;
+}
+
+.kpi-bad {
+    color: #fa709a;
+    font-weight: 700;
+}
+
+/* Tabla de Sprints */
+.kpi-table-container {
+    margin: 3rem 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.kpi-table-container h3 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.kpi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.kpi-table thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.kpi-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.kpi-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.kpi-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.kpi-table tbody tr {
+    border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.kpi-table tbody tr:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+}
+
+.kpi-table td {
+    padding: 1rem;
+    color: #333;
+}
+
+.kpi-table .btn-edit-sprint {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.kpi-table .btn-edit-sprint:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Gráficos */
+.kpi-charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.kpi-chart-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.kpi-chart-box h3 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 350px;
+}
+
+.chart-wrapper canvas {
+    max-height: 100%;
+}
+
+/* Info Box */
+.kpi-info-box {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 3rem;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.kpi-info-box h3 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.kpi-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.kpi-info-item {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.kpi-info-item strong {
+    display: block;
+    color: #667eea;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.kpi-info-item p {
+    color: #555;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.kpi-info-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kpi-info-item li {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Modal para Editar Sprint */
+.modal-kpi {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-kpi.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content-kpi {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header-kpi {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 18px 18px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header-kpi h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-body-kpi {
+    padding: 2rem;
+}
+
+.form-group-kpi {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-kpi label {
+    display: block;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.label-help {
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 400;
+    margin-left: 0.5rem;
+}
+
+.form-group-kpi input[type="number"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-group-kpi input[type="number"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.roles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.rol-input-group {
+    background: rgba(102, 126, 234, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.rol-input-group label {
+    display: block;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.rol-tarifa {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.rol-input-group input {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: white;
+}
+
+.rol-input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.modal-footer-kpi {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(102, 126, 234, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.btn-cancelar,
+.btn-guardar {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+.btn-cancelar:hover {
+    background: rgba(102, 126, 234, 0.2);
+}
+
+.btn-guardar {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: white;
+}
+
+.btn-guardar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.4);
+}
+
+/* Responsive KPIs */
+@media (max-width: 768px) {
+    .kpis-summary-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .kpi-charts-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .kpi-chart-box {
+        padding: 1.5rem;
+    }
+
+    .chart-wrapper {
+        height: 250px;
+    }
+
+    .kpi-table-container {
+        padding: 1rem;
+    }
+
+    .kpi-table {
+        font-size: 0.85rem;
+    }
+
+    .kpi-table th,
+    .kpi-table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .kpi-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roles-container {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content-kpi {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-body-kpi {
+        padding: 1.5rem;
+    }
+
+    .modal-footer-kpi {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+    }
+
+    .btn-cancelar,
+    .btn-guardar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .kpi-card-value {
+        font-size: 1.5rem;
+    }
+
+    .kpi-value {
+        font-size: 1.6rem;
+    }
+
+    .kpi-table {
+        font-size: 0.75rem;
+    }
+
+    .kpi-table th,
+    .kpi-table td {
+        padding: 0.5rem 0.3rem;
+    }
+
+    .btn-edit-sprint {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+

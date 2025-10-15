@@ -8,6 +8,7 @@ let tabsRendered = {
     timeline: false,
     gantt: false,
     hitos: false,
+    kpis: false,
     terminos: false
 };
 
@@ -52,6 +53,10 @@ function renderizarTabActiva(tabId) {
             break;
         case 'hitos':
             renderizarHitos();
+            break;
+        // KPIs se inicializa desde kpi.js
+        case 'kpis':
+            // La inicialización está en kpi.js, solo marcamos como renderizada
             break;
         // EDT y Términos ya están en HTML
         case 'edt':

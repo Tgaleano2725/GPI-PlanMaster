@@ -92,10 +92,11 @@
     <nav class="tabs-nav">
         <div class="container">
             <button class="tab-btn active" data-tab="edt">🧱 EDT</button>
-            <button class="tab-btn" data-tab="resumen">� Cronograma</button>
+            <button class="tab-btn" data-tab="resumen">📋 Cronograma</button>
             <button class="tab-btn" data-tab="timeline">📅 Línea de Tiempo</button>
             <button class="tab-btn" data-tab="gantt">📈 Diagrama de Gantt</button>
             <button class="tab-btn" data-tab="hitos">🎯 Hitos</button>
+            <button class="tab-btn" data-tab="kpis">📊 KPIs y Control Económico</button>
             <button class="tab-btn" data-tab="terminos">⚖️ Términos</button>
         </div>
     </nav>
@@ -507,6 +508,168 @@
                 <div id="milestones-container" class="milestones-container"></div>
             </div>
 
+            <!-- KPIs y Control Económico Tab -->
+            <div id="kpis" class="tab-content">
+                <h2>📊 KPIs y Control Económico</h2>
+                <p class="kpis-description">Análisis de Valor Ganado (EVM) - Seguimiento de PV, EV, AC, CPI y SPI por Sprint</p>
+
+                <!-- Tarjetas Resumen KPIs -->
+                <div class="kpis-summary-cards">
+                    <div class="kpi-card kpi-card-pv">
+                        <div class="kpi-card-icon">📊</div>
+                        <div class="kpi-card-content">
+                            <h3>PV Total</h3>
+                            <p class="kpi-card-title">Valor Planificado</p>
+                            <p class="kpi-card-value" id="kpi-pv-total">₲ 0</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card kpi-card-ev">
+                        <div class="kpi-card-icon">💰</div>
+                        <div class="kpi-card-content">
+                            <h3>EV Total</h3>
+                            <p class="kpi-card-title">Valor Ganado</p>
+                            <p class="kpi-card-value" id="kpi-ev-total">₲ 0</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card kpi-card-ac">
+                        <div class="kpi-card-icon">💸</div>
+                        <div class="kpi-card-content">
+                            <h3>AC Total</h3>
+                            <p class="kpi-card-title">Costo Real</p>
+                            <p class="kpi-card-value" id="kpi-ac-total">₲ 0</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card kpi-card-cpi">
+                        <div class="kpi-card-icon">📈</div>
+                        <div class="kpi-card-content">
+                            <h3>CPI</h3>
+                            <p class="kpi-card-title">Índice de Desempeño de Costos</p>
+                            <p class="kpi-value" id="kpi-cpi-total">—</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card kpi-card-spi">
+                        <div class="kpi-card-icon">⏱️</div>
+                        <div class="kpi-card-content">
+                            <h3>SPI</h3>
+                            <p class="kpi-card-title">Índice de Desempeño del Cronograma</p>
+                            <p class="kpi-value" id="kpi-spi-total">—</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Sprints -->
+                <div class="kpi-table-container">
+                    <h3>📋 Detalle por Sprint</h3>
+                    <div class="table-responsive">
+                        <table class="kpi-table">
+                            <thead>
+                                <tr>
+                                    <th>Sprint</th>
+                                    <th>PV (Planificado)</th>
+                                    <th>EV (Ganado)</th>
+                                    <th>AC (Real)</th>
+                                    <th>CPI</th>
+                                    <th>SPI</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="kpi-table-body">
+                                <!-- Generado dinámicamente por JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Gráficos -->
+                <div class="kpi-charts-container">
+                    <div class="kpi-chart-box">
+                        <h3>📈 Curva de Valor Ganado (Acumulado)</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="chart-pv-ac-line"></canvas>
+                        </div>
+                    </div>
+                    <div class="kpi-chart-box">
+                        <h3>📊 Comparativa PV vs AC por Sprint</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="chart-pv-ac-bars"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información de KPIs -->
+                <div class="kpi-info-box">
+                    <h3>ℹ️ Interpretación de los Indicadores</h3>
+                    <div class="kpi-info-grid">
+                        <div class="kpi-info-item">
+                            <strong>CPI (Cost Performance Index)</strong>
+                            <p>Mide la eficiencia del costo. CPI = EV / AC</p>
+                            <ul>
+                                <li><span class="kpi-good">CPI ≥ 1.0</span> - Dentro o bajo presupuesto</li>
+                                <li><span class="kpi-warning">CPI 0.9-0.99</span> - Ligero sobrecosto</li>
+                                <li><span class="kpi-bad">CPI &lt; 0.9</span> - Sobrecosto significativo</li>
+                            </ul>
+                        </div>
+                        <div class="kpi-info-item">
+                            <strong>SPI (Schedule Performance Index)</strong>
+                            <p>Mide el cumplimiento del cronograma. SPI = EV / PV</p>
+                            <ul>
+                                <li><span class="kpi-good">SPI ≥ 1.0</span> - Adelantado o a tiempo</li>
+                                <li><span class="kpi-warning">SPI 0.9-0.99</span> - Ligero retraso</li>
+                                <li><span class="kpi-bad">SPI &lt; 0.9</span> - Retraso significativo</li>
+                            </ul>
+                        </div>
+                        <div class="kpi-info-item">
+                            <strong>PV (Planned Value)</strong>
+                            <p>Valor del trabajo planificado según el baseline del proyecto.</p>
+                        </div>
+                        <div class="kpi-info-item">
+                            <strong>EV (Earned Value)</strong>
+                            <p>Valor del trabajo realmente completado. EV = PV × % Avance</p>
+                        </div>
+                        <div class="kpi-info-item">
+                            <strong>AC (Actual Cost)</strong>
+                            <p>Costo real incurrido. AC = Σ (Horas Reales × Tarifa por Rol)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para editar sprint -->
+            <div id="modal-sprint" class="modal-kpi">
+                <div class="modal-content-kpi">
+                    <div class="modal-header-kpi">
+                        <h3 id="modal-sprint-titulo">Editar Sprint</h3>
+                        <button class="modal-close" onclick="cerrarModal()">✕</button>
+                    </div>
+                    <div class="modal-body-kpi">
+                        <div class="form-group-kpi">
+                            <label for="input-avance-sprint">
+                                <strong>% Avance del Sprint</strong>
+                                <span class="label-help">(0-100%)</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="input-avance-sprint" 
+                                min="0" 
+                                max="100" 
+                                step="1"
+                                placeholder="Ej: 75"
+                            >
+                        </div>
+                        <div class="form-group-kpi">
+                            <label><strong>Horas Reales por Rol</strong></label>
+                            <div id="roles-horas-inputs" class="roles-container">
+                                <!-- Generado dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer-kpi">
+                        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+                        <button class="btn-guardar" onclick="guardarDatosSprint()">💾 Guardar Datos</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Términos y Condiciones Tab -->
             <div id="terminos" class="tab-content">
                 <div class="terminos-container">
@@ -795,7 +958,13 @@ SOFTWARE.</code></pre>
     </footer>
 
     <!-- Scripts -->
+    <!-- Chart.js para los gráficos de KPIs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
     <script src="js/data.js" defer></script>
+    <script src="js/kpi-data.js" defer></script>
+    <script src="js/kpi.js" defer></script>
     <script src="js/app.js" defer></script>
 </body>
 </html>
+
