@@ -570,7 +570,7 @@
                                     <th>AC (Real)</th>
                                     <th>CPI</th>
                                     <th>SPI</th>
-                                    <th>Acciones</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody id="kpi-table-body">
@@ -630,42 +630,6 @@
                             <strong>AC (Actual Cost)</strong>
                             <p>Costo real incurrido. AC = Σ (Horas Reales × Tarifa por Rol)</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal para editar sprint -->
-            <div id="modal-sprint" class="modal-kpi">
-                <div class="modal-content-kpi">
-                    <div class="modal-header-kpi">
-                        <h3 id="modal-sprint-titulo">Editar Sprint</h3>
-                        <button class="modal-close" onclick="cerrarModal()">✕</button>
-                    </div>
-                    <div class="modal-body-kpi">
-                        <div class="form-group-kpi">
-                            <label for="input-avance-sprint">
-                                <strong>% Avance del Sprint</strong>
-                                <span class="label-help">(0-100%)</span>
-                            </label>
-                            <input 
-                                type="number" 
-                                id="input-avance-sprint" 
-                                min="0" 
-                                max="100" 
-                                step="1"
-                                placeholder="Ej: 75"
-                            >
-                        </div>
-                        <div class="form-group-kpi">
-                            <label><strong>Horas Reales por Rol</strong></label>
-                            <div id="roles-horas-inputs" class="roles-container">
-                                <!-- Generado dinámicamente -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer-kpi">
-                        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
-                        <button class="btn-guardar" onclick="guardarDatosSprint()">💾 Guardar Datos</button>
                     </div>
                 </div>
             </div>

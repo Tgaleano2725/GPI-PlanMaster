@@ -1991,6 +1991,18 @@ body {
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
+.sprint-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #667eea;
+}
+
 /* Gráficos */
 .kpi-charts-container {
     display: grid;

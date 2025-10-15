@@ -109,6 +109,23 @@ function renderizarTablaSprints() {
     const cpi = calcularCPI(ev, ac);
     const spi = calcularSPI(ev, sprint.pv);
     
+    // Determinar estado del sprint
+    let estadoIcon = '⏳';
+    let estadoText = 'En Progreso';
+    if (sprint.avance === 100) {
+        estadoIcon = '✅';
+        estadoText = 'Completado';
+    } else if (sprint.avance >= 70) {
+        estadoIcon = '🔄';
+        estadoText = 'Avanzado';
+    } else if (sprint.avance >= 40) {
+        estadoIcon = '⏳';
+        estadoText = 'En Progreso';
+    } else {
+        estadoIcon = '📅';
+        estadoText = 'Planificado';
+    }
+    
     const row = document.createElement('tr');
     row.innerHTML = `
       <td><strong>${sprint.nombre}</strong></td>
@@ -121,9 +138,7 @@ function renderizarTablaSprints() {
       <td class="${obtenerClaseKPI(cpi)}">${formatearKPI(cpi)}</td>
       <td class="${obtenerClaseKPI(spi)}">${formatearKPI(spi)}</td>
       <td>
-        <button class="btn-editar" onclick="abrirModalSprint(${sprint.id})">
-          ✏️ Editar
-        </button>
+        <span class="sprint-status">${estadoIcon} ${estadoText}</span>
       </td>
     `;
     
