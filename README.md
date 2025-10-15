@@ -31,7 +31,7 @@ Sistema informático de gestión de proyectos que implementa una metodología h�
 - **Sprints**: 6 × 4 semanas
 - **Hitos**: 10 entregas principales
 
-## 📊 Características Principales
+## ✨ Características Principales
 
 - ✅ **Cronograma Visual Completo** - 184 actividades distribuidas en 9 meses
 - 📅 **Línea de Tiempo Interactiva** - Visualización cronológica con filtros por fase
@@ -40,9 +40,12 @@ Sistema informático de gestión de proyectos que implementa una metodología h�
 - 🔄 **Metodología Híbrida** - PMBOK 7ª Edición + Scrum (6 sprints × 4 semanas)
 - 📦 **60 Casos de Uso Distribuidos** - Autenticación, Proyectos, Tareas, Recursos, Riesgos y Reportes
 - 💰 **Gestión de Presupuesto** - ₲ 130.020.000
+- 🧱 **EDT Ultra Moderna** - Estructura de Desglose del Trabajo con diseño glassmorphism
+- ⚖️ **Términos y Condiciones** - Documentación legal completa (MIT License)
 - 📱 **100% Responsive** - Diseño adaptado a móvil, tablet y desktop
-- 🎨 **Diseño Profesional** - UI/UX moderna con paleta de colores distintivos
+- 🎨 **Diseño Profesional** - UI/UX moderna con paleta de colores pastel
 - 💾 **Datos JSON Estructurados** - Base de datos estática con información completa
+- ⚡ **Alto Rendimiento** - Lazy loading, GPU acceleration, GZIP compression
 
 ## 📁 Estructura del Proyecto
 
@@ -50,10 +53,10 @@ Sistema informático de gestión de proyectos que implementa una metodología h�
 GPI-PlanMaster/
 ├── index.html                 # Página principal
 ├── css/
-│   └── styles.css            # Estilos completos
+│   └── styles.css            # Estilos optimizados (1800+ líneas)
 ├── js/
 │   ├── data.js               # Carga y procesa datos
-│   ├── app.js                # Lógica de la aplicación
+│   ├── app.js                # Lógica con lazy loading
 │   └── cronograma-data.json  # Base de datos del proyecto
 ├── assets/
 │   └── images/               # Imágenes y recursos
@@ -61,11 +64,29 @@ GPI-PlanMaster/
 │   ├── CRONOGRAMA_DETALLADO.md
 │   ├── cronograma.csv
 │   └── cronograma.json
+├── .htaccess                 # Optimización de servidor
 ├── .gitignore
 ├── README.md
-├── LICENSE
+├── PERFORMANCE.md            # Documentación de optimizaciones
+├── LICENSE                   # MIT License
 └── netlify.toml              # Configuración para Netlify
 ```
+
+## 🛠️ Stack Tecnológico
+
+- **HTML5** - Semántica moderna
+- **CSS3** - Glassmorphism, Grid, Flexbox, Animations
+- **JavaScript ES6+** - Vanilla JS (sin frameworks)
+- **JSON** - Base de datos estática
+- **Git** - Control de versiones
+
+### ¿Por qué Vanilla JavaScript?
+
+✅ **Cero dependencias** - Sin jQuery, React, Vue, etc.  
+✅ **Máximo rendimiento** - Sin overhead de frameworks  
+✅ **Tamaño mínimo** - < 100KB total  
+✅ **Aprendizaje real** - Código nativo del navegador  
+✅ **Compatible** - Funciona en todos los navegadores modernos
 
 ## 🛠️ Instalación y Uso
 
@@ -94,6 +115,38 @@ open http://localhost:8000
 1. Instalar la extensión "Live Server"
 2. Clic derecho en `index.html`
 3. Seleccionar "Open with Live Server"
+
+## 🎯 Características Principales
+
+### 🧱 EDT - Estructura de Desglose del Trabajo
+- **Jerarquía Completa**: 5 fases → 6 sprints → 184 actividades
+- **Acordeón Interactivo**: Expandir/colapsar fases y sprints
+- **Destacado de Hitos**: 10 hitos clave marcados con ⭐
+- **Resumen Visual**: Cards con métricas principales
+
+### 📊 Resumen Ejecutivo
+- **Vista General**: Información clave del proyecto
+- **Sprints Detallados**: 6 sprints de 4 semanas cada uno
+- **Fases del PMBOK**: 5 fases principales con todas sus actividades
+
+### 📅 Línea de Tiempo
+- **Vista Cronológica**: Todas las 184 actividades ordenadas temporalmente
+- **Filtros por Fase**: Iniciación, Planificación, Ejecución, Control, Cierre
+- **Código de Colores**: Identificación visual por fase
+
+### 📈 Diagrama de Gantt Detallado
+- **Visualización Jerárquica**: Fases → Sprints → Actividades
+- **Controles Interactivos**:
+  - Toggle mostrar todo / solo fases
+  - Zoom in/out (incrementos del 30%)
+  - Botón reset para vista original
+- **Barras Visuales**: Min-width para actividades cortas, colores saturados
+- **Header Sticky**: Encabezados de fecha siempre visibles
+
+### 🎯 Gestión de Hitos
+- **10 Hitos Críticos**: Puntos de control del proyecto
+- **Vista de Lista**: Fecha, nombre y descripción
+- **Indicadores Visuales**: Iconos y colores distintivos
 
 ## 📦 Deployment
 

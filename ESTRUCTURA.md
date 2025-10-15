@@ -38,9 +38,9 @@ GPI-PlanMaster/
 ## 📊 Desglose de Archivos
 
 ### 🎨 Frontend (3 archivos principales)
-- `index.html` - Estructura HTML con meta tags SEO
-- `css/styles.css` - 500+ líneas de CSS profesional
-- `js/app.js` - Lógica de visualización (Gantt, Timeline, Hitos)
+- `index.html` - Estructura HTML con 5 pestañas (EDT, Resumen, Timeline, Gantt, Hitos)
+- `css/styles.css` - 1000+ líneas de CSS profesional (includes EDT accordion styles)
+- `js/app.js` - Lógica de visualización + funciones EDT (toggleEdtPhase, toggleEdtSprint)
 - `js/data.js` - Gestión de datos y utilidades
 
 ### 📦 Datos
@@ -101,12 +101,38 @@ GPI-PlanMaster/
 | Categoría | Cantidad |
 |-----------|----------|
 | **Archivos HTML** | 1 |
-| **Archivos CSS** | 1 (500+ líneas) |
-| **Archivos JavaScript** | 2 (700+ líneas) |
+| **Archivos CSS** | 1 (1000+ líneas) |
+| **Archivos JavaScript** | 2 (750+ líneas) |
 | **Archivos JSON** | 2 (datos) |
 | **Documentación** | 5 archivos |
 | **Configuración** | 4 archivos |
-| **Total Líneas de Código** | ~1,500 |
+| **Total Líneas de Código** | ~2,000 |
+
+## 🧱 Sección EDT - Nueva en v1.2.0
+
+### Estructura Jerárquica
+```
+📊 1.0 Sistema de Gestión de Proyectos
+├── 🎯 1. Fase de Iniciación (6 actividades)
+├── 📋 2. Fase de Planificación (12 actividades)
+├── ⚙️ 3. Fase de Ejecución (60 CU | 6 sprints)
+│   ├── 🚀 Sprint 1: Autenticación (6 CU)
+│   ├── 🚀 Sprint 2: Proyectos (10 CU)
+│   ├── 🚀 Sprint 3: Tareas (12 CU)
+│   ├── 🚀 Sprint 4: Recursos y Costos (10 CU)
+│   ├── 🚀 Sprint 5: Riesgos y Calidad (10 CU)
+│   └── 🚀 Sprint 6: Reportes y Dashboards (12 CU)
+├── 🔍 4. Fase de Control (10 actividades continuas)
+└── ✅ 5. Fase de Cierre (14 actividades)
+```
+
+### Funcionalidades
+- ✅ Acordeón multinivel (fases → sprints → actividades)
+- ✅ 10 hitos destacados con ⭐
+- ✅ 5 cards resumen (fases, sprints, actividades, hitos, duración)
+- ✅ Animaciones suaves de expand/collapse
+- ✅ Colores distintivos por fase y sprint
+- ✅ Responsive design
 
 ## 🚀 Próximos Pasos
 

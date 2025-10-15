@@ -5,6 +5,48 @@ Todos los cambios notables del proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-10-14
+
+### 🧱 Nueva Sección EDT (Estructura de Desglose del Trabajo)
+
+#### ✨ Agregado
+- **Nueva pestaña EDT** - Primera pestaña del sistema (antes de Resumen)
+- **Vista jerárquica completa**:
+  - Nivel 1: Proyecto general con descripción
+  - Nivel 2: 5 fases principales (acordeón interactivo)
+  - Nivel 3: 6 sprints dentro de Fase 3 (sub-acordeón)
+  - Nivel 4: 184 actividades organizadas jerárquicamente
+- **Acordeón interactivo**:
+  - Expandir/colapsar fases con animación suave
+  - Sub-acordeón para sprints
+  - Toggle independiente por nivel
+- **Destacado de hitos**: 10 hitos marcados con ⭐ y estilo diferenciado
+- **Cards resumen EDT**:
+  - 5 Fases
+  - 6 Sprints
+  - 184 Actividades
+  - 10 Hitos
+  - 9 meses de duración
+- **Diseño profesional**:
+  - Colores por fase (Purple, Pink, Blue, Green, Red)
+  - Colores por sprint (Orange, Cyan, Teal, Purple, Pink, Green)
+  - Bordes laterales para identificación visual
+  - Hover effects y transiciones
+  - Responsive design para móvil y tablet
+
+#### 🔧 Mejorado
+- Navegación de pestañas: EDT ahora es la primera vista
+- README.md actualizado con sección "Características Principales"
+- Documentación de funcionalidades EDT incluida
+- CSS modular con 300+ líneas de estilos EDT
+
+#### 📝 Funciones JavaScript
+- `toggleEdtPhase()` - Expandir/colapsar fases
+- `toggleEdtSprint()` - Expandir/colapsar sprints
+- Transiciones CSS con max-height dinámico
+
+---
+
 ## [1.1.0] - 2025-10-14
 
 ### 🔄 Actualización Mayor de Datos

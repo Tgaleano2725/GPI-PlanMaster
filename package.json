@@ -1,7 +1,7 @@
 {
   "name": "gpi-planmaster",
-  "version": "1.1.0",
-  "description": "Cronograma visual interactivo para Gestión de Proyectos Informáticos - UAA",
+  "version": "1.2.0",
+  "description": "Cronograma visual interactivo con EDT jerárquica para Gestión de Proyectos Informáticos - UAA",
   "main": "index.html",
   "scripts": {
     "start": "python3 -m http.server 8000",

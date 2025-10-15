@@ -2,6 +2,14 @@
 
 // Variables globales
 let actividadesFiltradas = [];
+let tabsRendered = {
+    edt: false,
+    resumen: false,
+    timeline: false,
+    gantt: false,
+    hitos: false,
+    terminos: false
+};
 
 // ==================== INICIALIZACIÓN ====================
 
@@ -16,15 +24,44 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
     
-    // Inicializar la aplicación
+    // Inicializar navegación
     inicializarTabs();
-    renderizarResumen();
-    renderizarTimeline();
-    renderizarGantt();
-    renderizarHitos();
+    
+    // Renderizar solo la primera pestaña activa (EDT)
+    renderizarTabActiva('edt');
     
     console.log('✅ Aplicación iniciada correctamente');
 });
+
+// ==================== RENDERIZAR TAB BAJO DEMANDA ====================
+
+function renderizarTabActiva(tabId) {
+    // Si ya fue renderizada, no hacer nada
+    if (tabsRendered[tabId]) return;
+    
+    // Renderizar según el tab
+    switch(tabId) {
+        case 'resumen':
+            renderizarResumen();
+            break;
+        case 'timeline':
+            renderizarTimeline();
+            break;
+        case 'gantt':
+            renderizarGantt();
+            break;
+        case 'hitos':
+            renderizarHitos();
+            break;
+        // EDT y Términos ya están en HTML
+        case 'edt':
+        case 'terminos':
+            break;
+    }
+    
+    // Marcar como renderizada
+    tabsRendered[tabId] = true;
+}
 
 // ==================== MANEJO DE ERRORES ====================
 
@@ -57,6 +94,9 @@ function inicializarTabs() {
             // Agregar clase active al botón y contenido seleccionado
             btn.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
+            
+            // Renderizar el tab si no ha sido cargado
+            renderizarTabActiva(targetTab);
         });
     });
 }

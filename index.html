@@ -34,8 +34,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
     
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="js/data.js" as="script">
+    <link rel="preload" href="js/app.js" as="script">
 </head>
 <body>
     <!-- Header -->
@@ -90,19 +91,307 @@
     <!-- Navigation Tabs -->
     <nav class="tabs-nav">
         <div class="container">
-            <button class="tab-btn active" data-tab="resumen">📊 Resumen</button>
+            <button class="tab-btn active" data-tab="edt">🧱 EDT</button>
+            <button class="tab-btn" data-tab="resumen">� Cronograma</button>
             <button class="tab-btn" data-tab="timeline">📅 Línea de Tiempo</button>
             <button class="tab-btn" data-tab="gantt">📈 Diagrama de Gantt</button>
             <button class="tab-btn" data-tab="hitos">🎯 Hitos</button>
+            <button class="tab-btn" data-tab="terminos">⚖️ Términos</button>
         </div>
     </nav>
 
     <!-- Tab Content -->
     <main class="main-content">
         <div class="container">
+            <!-- EDT Tab -->
+            <div id="edt" class="tab-content active">
+                <h2>🧱 Estructura de Desglose del Trabajo (EDT)</h2>
+                <p class="edt-description">Jerarquía completa del proyecto - 5 Fases | 6 Sprints | 184 Actividades | 10 Hitos</p>
+
+                <!-- EDT Summary Cards -->
+                <div class="edt-summary-cards">
+                    <div class="edt-card-stat">
+                        <div class="edt-card-icon">📁</div>
+                        <div class="edt-card-info">
+                            <h4>5</h4>
+                            <p>Fases PMBOK</p>
+                        </div>
+                    </div>
+                    <div class="edt-card-stat">
+                        <div class="edt-card-icon">�</div>
+                        <div class="edt-card-info">
+                            <h4>6</h4>
+                            <p>Sprints Scrum</p>
+                        </div>
+                    </div>
+                    <div class="edt-card-stat">
+                        <div class="edt-card-icon">📋</div>
+                        <div class="edt-card-info">
+                            <h4>184</h4>
+                            <p>Actividades</p>
+                        </div>
+                    </div>
+                    <div class="edt-card-stat">
+                        <div class="edt-card-icon">⭐</div>
+                        <div class="edt-card-info">
+                            <h4>10</h4>
+                            <p>Hitos Clave</p>
+                        </div>
+                    </div>
+                    <div class="edt-card-stat">
+                        <div class="edt-card-icon">📅</div>
+                        <div class="edt-card-info">
+                            <h4>9</h4>
+                            <p>Meses</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDT Visual Hierarchy -->
+                <div class="edt-visual-container">
+                    <!-- Fase 1: Iniciación -->
+                    <div class="edt-fase-card fase-iniciacion">
+                        <div class="edt-fase-header">
+                            <div class="edt-fase-title">
+                                <span class="edt-fase-icon">🎯</span>
+                                <h3>Fase 1: Iniciación</h3>
+                            </div>
+                            <span class="edt-fase-badge">6 actividades</span>
+                        </div>
+                        <div class="edt-actividades-grid">
+                            <div class="edt-actividad">1.1 Reunión inicial con stakeholders</div>
+                            <div class="edt-actividad">1.2 Análisis de necesidades y objetivos</div>
+                            <div class="edt-actividad">1.3 Identificación y análisis de stakeholders</div>
+                            <div class="edt-actividad">1.4 Definición de alcance preliminar</div>
+                            <div class="edt-actividad">1.5 Elaboración del Acta de Constitución</div>
+                            <div class="edt-actividad edt-hito">⭐ 1.6 Aprobación formal del proyecto</div>
+                        </div>
+                    </div>
+
+                    <!-- Fase 2: Planificación -->
+                    <div class="edt-fase-card fase-planificacion">
+                        <div class="edt-fase-header">
+                            <div class="edt-fase-title">
+                                <span class="edt-fase-icon">📋</span>
+                                <h3>Fase 2: Planificación</h3>
+                            </div>
+                            <span class="edt-fase-badge">12 actividades</span>
+                        </div>
+                        <div class="edt-actividades-grid">
+                            <div class="edt-actividad">2.1 Definición de metodología híbrida</div>
+                            <div class="edt-actividad">2.2 Conformación del equipo</div>
+                            <div class="edt-actividad">2.3 Roles y responsabilidades (RACI)</div>
+                            <div class="edt-actividad">2.4 EDT completa (60 CU)</div>
+                            <div class="edt-actividad">2.5 Estimación PERT de tiempos</div>
+                            <div class="edt-actividad">2.6 Estimación Bottom-Up de costos</div>
+                            <div class="edt-actividad">2.7 Planificación de Sprints (6 × 4 sem)</div>
+                            <div class="edt-actividad">2.8 Identificación de riesgos</div>
+                            <div class="edt-actividad">2.9 Plan de mitigación de riesgos</div>
+                            <div class="edt-actividad">2.10 Plan de comunicaciones</div>
+                            <div class="edt-actividad">2.11 Elaboración del Gantt</div>
+                            <div class="edt-actividad edt-hito">⭐ 2.12 Aprobación del Plan</div>
+                        </div>
+                    </div>
+
+                    <!-- Fase 3: Ejecución (con Sprints) -->
+                    <div class="edt-fase-card fase-ejecucion">
+                        <div class="edt-fase-header">
+                            <div class="edt-fase-title">
+                                <span class="edt-fase-icon">⚙️</span>
+                                <h3>Fase 3: Ejecución - Desarrollo en Sprints</h3>
+                            </div>
+                            <span class="edt-fase-badge">60 CU | 6 sprints</span>
+                        </div>
+
+                        <!-- Sprint 1 -->
+                        <div class="edt-sprint-card sprint-1">
+                            <div class="edt-sprint-header">
+                                <span class="edt-sprint-icon">🚀</span>
+                                <h4>Sprint 1: Autenticación y Perfiles</h4>
+                                <span class="edt-sprint-badge">6 CU</span>
+                            </div>
+                            <div class="edt-actividades-list">
+                                <div class="edt-actividad-sm">Sprint Planning 1</div>
+                                <div class="edt-actividad-sm">Diseño de arquitectura</div>
+                                <div class="edt-actividad-sm">CU-001: Login de usuario</div>
+                                <div class="edt-actividad-sm">CU-002: Registro de usuario</div>
+                                <div class="edt-actividad-sm">CU-003: Recuperar contraseña</div>
+                                <div class="edt-actividad-sm">CU-004: Gestión de perfil</div>
+                                <div class="edt-actividad-sm">CU-005: Roles y permisos</div>
+                                <div class="edt-actividad-sm">CU-006: Cerrar sesión</div>
+                                <div class="edt-actividad-sm edt-hito-sm">⭐ Review & Retrospectiva</div>
+                            </div>
+                        </div>
+
+                        <!-- Sprint 2 -->
+                        <div class="edt-sprint-card sprint-2">
+                            <div class="edt-sprint-header">
+                                <span class="edt-sprint-icon">🚀</span>
+                                <h4>Sprint 2: Gestión de Proyectos</h4>
+                                <span class="edt-sprint-badge">10 CU</span>
+                            </div>
+                            <div class="edt-actividades-list">
+                                <div class="edt-actividad-sm">Sprint Planning 2</div>
+                                <div class="edt-actividad-sm">CU-007: Crear proyecto</div>
+                                <div class="edt-actividad-sm">CU-008: Editar proyecto</div>
+                                <div class="edt-actividad-sm">CU-009: Eliminar proyecto</div>
+                                <div class="edt-actividad-sm">CU-010: Listar proyectos</div>
+                                <div class="edt-actividad-sm">CU-011: Ver detalle proyecto</div>
+                                <div class="edt-actividad-sm">CU-012: Cerrar proyecto</div>
+                                <div class="edt-actividad-sm">CU-013: Reabrir proyecto</div>
+                                <div class="edt-actividad-sm">CU-014: Asignar responsables</div>
+                                <div class="edt-actividad-sm">CU-015: Gestión de estados</div>
+                                <div class="edt-actividad-sm">CU-016: Filtros avanzados</div>
+                                <div class="edt-actividad-sm edt-hito-sm">⭐ Review & Retrospectiva</div>
+                            </div>
+                        </div>
+
+                        <!-- Sprint 3 -->
+                        <div class="edt-sprint-card sprint-3">
+                            <div class="edt-sprint-header">
+                                <span class="edt-sprint-icon">🚀</span>
+                                <h4>Sprint 3: Gestión de Tareas</h4>
+                                <span class="edt-sprint-badge">12 CU</span>
+                            </div>
+                            <div class="edt-actividades-list">
+                                <div class="edt-actividad-sm">Sprint Planning 3</div>
+                                <div class="edt-actividad-sm">CU-017 a CU-028: CRUD tareas</div>
+                                <div class="edt-actividad-sm">Asignar responsables, estados</div>
+                                <div class="edt-actividad-sm">Dependencias entre tareas</div>
+                                <div class="edt-actividad-sm">Vista Kanban</div>
+                                <div class="edt-actividad-sm">Filtros y búsqueda</div>
+                                <div class="edt-actividad-sm">Comentarios en tareas</div>
+                                <div class="edt-actividad-sm">Notificaciones</div>
+                                <div class="edt-actividad-sm">Carga masiva</div>
+                                <div class="edt-actividad-sm">Importar/Exportar</div>
+                                <div class="edt-actividad-sm edt-hito-sm">⭐ Review & Retrospectiva</div>
+                            </div>
+                        </div>
+
+                        <!-- Sprint 4 -->
+                        <div class="edt-sprint-card sprint-4">
+                            <div class="edt-sprint-header">
+                                <span class="edt-sprint-icon">🚀</span>
+                                <h4>Sprint 4: Recursos y Costos</h4>
+                                <span class="edt-sprint-badge">10 CU</span>
+                            </div>
+                            <div class="edt-actividades-list">
+                                <div class="edt-actividad-sm">Sprint Planning 4</div>
+                                <div class="edt-actividad-sm">CU-029 a CU-038: Gestión recursos</div>
+                                <div class="edt-actividad-sm">Alta de recursos humanos</div>
+                                <div class="edt-actividad-sm">Asignación a tareas</div>
+                                <div class="edt-actividad-sm">Definir costo/hora</div>
+                                <div class="edt-actividad-sm">Costo por tarea/proyecto</div>
+                                <div class="edt-actividad-sm">Materiales y presupuesto</div>
+                                <div class="edt-actividad-sm">Costeo acumulado</div>
+                                <div class="edt-actividad-sm">Reportes financieros</div>
+                                <div class="edt-actividad-sm">Auditoría de costos</div>
+                                <div class="edt-actividad-sm edt-hito-sm">⭐ Review & Retrospectiva</div>
+                            </div>
+                        </div>
+
+                        <!-- Sprint 5 -->
+                        <div class="edt-sprint-card sprint-5">
+                            <div class="edt-sprint-header">
+                                <span class="edt-sprint-icon">🚀</span>
+                                <h4>Sprint 5: Riesgos y Calidad</h4>
+                                <span class="edt-sprint-badge">10 CU</span>
+                            </div>
+                            <div class="edt-actividades-list">
+                                <div class="edt-actividad-sm">Sprint Planning 5</div>
+                                <div class="edt-actividad-sm">CU-039 a CU-048: Gestión riesgos</div>
+                                <div class="edt-actividad-sm">Registrar riesgos</div>
+                                <div class="edt-actividad-sm">Evaluar probabilidad/impacto</div>
+                                <div class="edt-actividad-sm">Plan de mitigación</div>
+                                <div class="edt-actividad-sm">Seguimiento de riesgos</div>
+                                <div class="edt-actividad-sm">Gestión de incidencias</div>
+                                <div class="edt-actividad-sm">Verificación de calidad</div>
+                                <div class="edt-actividad-sm">Auditoría de calidad</div>
+                                <div class="edt-actividad-sm">KPIs y mejora continua</div>
+                                <div class="edt-actividad-sm edt-hito-sm">⭐ Review & Retrospectiva</div>
+                            </div>
+                        </div>
+
+                        <!-- Sprint 6 -->
+                        <div class="edt-sprint-card sprint-6">
+                            <div class="edt-sprint-header">
+                                <span class="edt-sprint-icon">🚀</span>
+                                <h4>Sprint 6: Reportes y Dashboards</h4>
+                                <span class="edt-sprint-badge">12 CU</span>
+                            </div>
+                            <div class="edt-actividades-list">
+                                <div class="edt-actividad-sm">Sprint Planning 6</div>
+                                <div class="edt-actividad-sm">CU-049 a CU-060: Reportes</div>
+                                <div class="edt-actividad-sm">Reporte de avance</div>
+                                <div class="edt-actividad-sm">Reporte de cumplimiento</div>
+                                <div class="edt-actividad-sm">Dashboard general</div>
+                                <div class="edt-actividad-sm">Dashboard por proyecto</div>
+                                <div class="edt-actividad-sm">KPIs ejecutivos</div>
+                                <div class="edt-actividad-sm">Exportación múltiple</div>
+                                <div class="edt-actividad-sm">Filtros avanzados</div>
+                                <div class="edt-actividad-sm">Integración de módulos</div>
+                                <div class="edt-actividad-sm">Hardening y optimización</div>
+                                <div class="edt-actividad-sm">UAT completo</div>
+                                <div class="edt-actividad-sm edt-hito-sm">⭐ Review & Retrospectiva Final</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fase 4: Control -->
+                    <div class="edt-fase-card fase-control">
+                        <div class="edt-fase-header">
+                            <div class="edt-fase-title">
+                                <span class="edt-fase-icon">🔍</span>
+                                <h3>Fase 4: Control y Seguimiento</h3>
+                            </div>
+                            <span class="edt-fase-badge">10 actividades continuas</span>
+                        </div>
+                        <div class="edt-actividades-grid">
+                            <div class="edt-actividad">4.1 Daily Scrum diarias</div>
+                            <div class="edt-actividad">4.2 Monitoreo semanal</div>
+                            <div class="edt-actividad">4.3 Control de cambios</div>
+                            <div class="edt-actividad">4.4 Gestión de riesgos continua</div>
+                            <div class="edt-actividad">4.5 Seguimiento cronograma (EVM)</div>
+                            <div class="edt-actividad">4.6 Control de presupuesto</div>
+                            <div class="edt-actividad">4.7 Métricas de calidad y KPIs</div>
+                            <div class="edt-actividad">4.8 Comunicación stakeholders</div>
+                            <div class="edt-actividad">4.9 Actualización Product Backlog</div>
+                            <div class="edt-actividad">4.10 Gestión de Issues y Bugs</div>
+                        </div>
+                    </div>
+
+                    <!-- Fase 5: Cierre -->
+                    <div class="edt-fase-card fase-cierre">
+                        <div class="edt-fase-header">
+                            <div class="edt-fase-title">
+                                <span class="edt-fase-icon">✅</span>
+                                <h3>Fase 5: Cierre</h3>
+                            </div>
+                            <span class="edt-fase-badge">14 actividades</span>
+                        </div>
+                        <div class="edt-actividades-grid">
+                            <div class="edt-actividad">5.1 Despliegue en producción</div>
+                            <div class="edt-actividad">5.2 Pruebas UAT</div>
+                            <div class="edt-actividad">5.3 Corrección defectos UAT</div>
+                            <div class="edt-actividad">5.4 Documentación técnica final</div>
+                            <div class="edt-actividad">5.5 Manual de usuario</div>
+                            <div class="edt-actividad">5.6 Manual de administrador</div>
+                            <div class="edt-actividad">5.7 Capacitación usuarios</div>
+                            <div class="edt-actividad">5.8 Informe de cierre</div>
+                            <div class="edt-actividad">5.9 Lecciones aprendidas</div>
+                            <div class="edt-actividad edt-hito">⭐ 5.10 Presentación final</div>
+                            <div class="edt-actividad">5.11 Evaluación del equipo</div>
+                            <div class="edt-actividad">5.12 Liberación de recursos</div>
+                            <div class="edt-actividad">5.13 Archivo de documentación</div>
+                            <div class="edt-actividad edt-hito">⭐ 5.14 Cierre contractual</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Resumen Tab -->
-            <div id="resumen" class="tab-content active">
-                <h2>📊 Resumen del Proyecto</h2>
+            <div id="resumen" class="tab-content">
+                <h2>� Cronograma Resumido y Detallado</h2>
                 
                 <div class="phase-section">
                     <div class="phase-header fase-iniciacion">
@@ -217,6 +506,283 @@
                 <h2>🎯 Hitos del Proyecto</h2>
                 <div id="milestones-container" class="milestones-container"></div>
             </div>
+
+            <!-- Términos y Condiciones Tab -->
+            <div id="terminos" class="tab-content">
+                <div class="terminos-container">
+                    <div class="terminos-header">
+                        <h2>⚖️ Términos y Condiciones de Uso</h2>
+                        <p class="terminos-subtitle">Sistema de Gestión de Proyectos Informáticos - GPI-PlanMaster</p>
+                        <div class="terminos-version">
+                            <span class="badge-version">Versión 1.2.0</span>
+                            <span class="badge-date">Última actualización: 14 de octubre de 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="terminos-content">
+                        <!-- Sección 1: Propiedad Intelectual -->
+                        <div class="terminos-section">
+                            <div class="section-icon">©️</div>
+                            <div class="section-content">
+                                <h3>1. Propiedad Intelectual y Derechos de Autor</h3>
+                                <p>GPI-PlanMaster es propiedad intelectual de:</p>
+                                <div class="author-box">
+                                    <div class="author-info">
+                                        <strong>Lic. Tobias González Galeano</strong>
+                                        <span>Universidad Autónoma de Asunción (UAA)</span>
+                                        <span>Facultad de Ciencias y Tecnología</span>
+                                        <span>Maestría en Gestión de Sistemas Informáticos</span>
+                                    </div>
+                                </div>
+                                <p>© 2025 Tobias González Galeano. Todos los derechos reservados bajo licencia MIT.</p>
+                                <p>Este software fue desarrollado como proyecto final de la materia <strong>INFO-783: Gestión de Proyectos Informáticos</strong> en la Universidad Autónoma de Asunción.</p>
+                            </div>
+                        </div>
+
+                        <!-- Sección 2: Licencia -->
+                        <div class="terminos-section">
+                            <div class="section-icon">📜</div>
+                            <div class="section-content">
+                                <h3>2. Licencia de Uso - MIT License</h3>
+                                <p>Este software se distribuye bajo la <strong>Licencia MIT</strong>, que permite:</p>
+                                <ul class="license-list">
+                                    <li>✅ Uso comercial y personal sin restricciones</li>
+                                    <li>✅ Modificación del código fuente</li>
+                                    <li>✅ Distribución de copias originales o modificadas</li>
+                                    <li>✅ Uso privado sin obligación de divulgación</li>
+                                    <li>✅ Sublicenciamiento bajo los mismos términos</li>
+                                </ul>
+                                <div class="license-box">
+                                    <h4>Texto de la Licencia MIT</h4>
+                                    <p class="license-text">
+                                        Se concede permiso, libre de cargos, a cualquier persona que obtenga una copia de este software 
+                                        y de los archivos de documentación asociados (el "Software"), para utilizar el Software sin restricción, 
+                                        incluyendo sin limitación los derechos a usar, copiar, modificar, fusionar, publicar, distribuir, 
+                                        sublicenciar, y/o vender copias del Software, y a permitir a las personas a las que se les proporcione 
+                                        el Software a hacer lo mismo, sujeto a las siguientes condiciones:
+                                    </p>
+                                    <p class="license-text highlight">
+                                        El aviso de copyright anterior y este aviso de permiso se incluirán en todas las copias o 
+                                        porciones sustanciales del Software.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección 3: Garantía -->
+                        <div class="terminos-section">
+                            <div class="section-icon">⚠️</div>
+                            <div class="section-content">
+                                <h3>3. Exclusión de Garantías</h3>
+                                <p>EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A:</p>
+                                <ul class="warning-list">
+                                    <li>Garantías de comerciabilidad</li>
+                                    <li>Idoneidad para un propósito particular</li>
+                                    <li>No infracción de derechos de terceros</li>
+                                    <li>Disponibilidad continua del servicio</li>
+                                    <li>Ausencia de errores o defectos</li>
+                                </ul>
+                                <p class="disclaimer">
+                                    El uso de este software es bajo su propio riesgo. El autor no será responsable de ningún daño directo, 
+                                    indirecto, incidental, especial, ejemplar o consecuente que resulte del uso o la imposibilidad de uso del software.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Sección 4: Uso Académico -->
+                        <div class="terminos-section">
+                            <div class="section-icon">🎓</div>
+                            <div class="section-content">
+                                <h3>4. Propósito Académico y Educativo</h3>
+                                <p>Este software fue desarrollado con fines académicos y educativos en el marco del programa de Ingeniería Informática de la UAA.</p>
+                                <div class="academic-box">
+                                    <h4>Contexto Académico</h4>
+                                    <ul>
+                                        <li><strong>Institución:</strong> Universidad Autónoma de Asunción (UAA)</li>
+                                        <li><strong>Facultad:</strong> Ciencias y Tecnología</li>
+                                        <li><strong>Programa:</strong> Maestría en Gestión de Sistemas Informáticos</li>
+                                        <li><strong>Materia:</strong> INFO-783 - Gestión de Proyectos Informáticos</li>
+                                        <li><strong>Metodología:</strong> PMBOK 7ª Edición + Scrum Framework</li>
+                                        <li><strong>Tipo:</strong> Proyecto Final de Materia</li>
+                                    </ul>
+                                </div>
+                                <p>Los usuarios son libres de utilizar este proyecto como referencia para trabajos académicos, citando apropiadamente la autoría.</p>
+                            </div>
+                        </div>
+
+                        <!-- Sección 5: Atribución -->
+                        <div class="terminos-section">
+                            <div class="section-icon">🏆</div>
+                            <div class="section-content">
+                                <h3>5. Requisitos de Atribución</h3>
+                                <p>Si bien la licencia MIT no requiere atribución obligatoria, se agradece y recomienda:</p>
+                                <ul class="attribution-list">
+                                    <li>Mantener el aviso de copyright original en el código fuente</li>
+                                    <li>Incluir referencia al autor original en la documentación</li>
+                                    <li>Mencionar la Universidad Autónoma de Asunción (UAA) en contextos académicos</li>
+                                    <li>Proporcionar enlace al repositorio original si se distribuye públicamente</li>
+                                </ul>
+                                <div class="citation-box">
+                                    <h4>Formato de Citación Sugerido</h4>
+                                    <code>
+                                        González Galeano, T. (2025). GPI-PlanMaster: Sistema de Gestión de Proyectos Informáticos (Versión 1.2.0) 
+                                        [Software]. Universidad Autónoma de Asunción. https://github.com/Tgaleano2725/GPI-PlanMaster
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección 6: Privacidad -->
+                        <div class="terminos-section">
+                            <div class="section-icon">🔒</div>
+                            <div class="section-content">
+                                <h3>6. Privacidad y Tratamiento de Datos</h3>
+                                <p>Esta aplicación web es completamente estática y funciona del lado del cliente (frontend):</p>
+                                <ul class="privacy-list">
+                                    <li>✅ No recopila datos personales de los usuarios</li>
+                                    <li>✅ No utiliza cookies de seguimiento</li>
+                                    <li>✅ No envía información a servidores externos</li>
+                                    <li>✅ Toda la información se procesa localmente en el navegador</li>
+                                    <li>✅ No requiere registro ni autenticación de usuarios</li>
+                                </ul>
+                                <p class="privacy-note">
+                                    Los datos del cronograma son estáticos y están embebidos en el código fuente como parte del proyecto académico.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Sección 7: Tecnologías -->
+                        <div class="terminos-section">
+                            <div class="section-icon">🛠️</div>
+                            <div class="section-content">
+                                <h3>7. Stack Tecnológico y Dependencias</h3>
+                                <p>Este software está construido con tecnologías de código abierto:</p>
+                                <div class="tech-grid">
+                                    <div class="tech-item">
+                                        <strong>HTML5</strong>
+                                        <span>Estructura semántica</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <strong>CSS3</strong>
+                                        <span>Estilos modernos (Glassmorphism)</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <strong>JavaScript ES6+</strong>
+                                        <span>Lógica de aplicación (Vanilla JS)</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <strong>Sin frameworks</strong>
+                                        <span>Código nativo sin dependencias externas</span>
+                                    </div>
+                                </div>
+                                <p>No se utilizan bibliotecas de terceros, garantizando control total sobre el código y la privacidad.</p>
+                            </div>
+                        </div>
+
+                        <!-- Sección 8: Limitaciones -->
+                        <div class="terminos-section">
+                            <div class="section-icon">📏</div>
+                            <div class="section-content">
+                                <h3>8. Limitaciones de Responsabilidad</h3>
+                                <p>En ningún caso el autor o los titulares del copyright serán responsables de:</p>
+                                <ul class="limitations-list">
+                                    <li>Reclamaciones, daños u otras responsabilidades derivadas del uso del software</li>
+                                    <li>Pérdida de datos o información almacenada localmente en el navegador</li>
+                                    <li>Incompatibilidades con navegadores específicos o versiones antiguas</li>
+                                    <li>Problemas derivados de modificaciones no autorizadas del código</li>
+                                    <li>Uso inadecuado o contrario a las leyes aplicables</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Sección 9: Contribuciones -->
+                        <div class="terminos-section">
+                            <div class="section-icon">🤝</div>
+                            <div class="section-content">
+                                <h3>9. Contribuciones y Mejoras</h3>
+                                <p>Se aceptan contribuciones al proyecto bajo las siguientes condiciones:</p>
+                                <ul class="contribution-list">
+                                    <li>Las contribuciones deben respetar la licencia MIT existente</li>
+                                    <li>Se debe mantener la atribución al autor original</li>
+                                    <li>El código debe seguir los estándares establecidos en el proyecto</li>
+                                    <li>Se recomienda abrir un Pull Request en GitHub para revisión</li>
+                                </ul>
+                                <p>Para más detalles, consulta el archivo <code>CONTRIBUTING.md</code> en el repositorio.</p>
+                            </div>
+                        </div>
+
+                        <!-- Sección 10: Contacto -->
+                        <div class="terminos-section">
+                            <div class="section-icon">📧</div>
+                            <div class="section-content">
+                                <h3>10. Contacto y Soporte</h3>
+                                <p>Para consultas, reportes de bugs o sugerencias:</p>
+                                <div class="contact-box">
+                                    <div class="contact-item">
+                                        <strong>Repositorio GitHub:</strong>
+                                        <a href="https://github.com/Tgaleano2725/GPI-PlanMaster" target="_blank">github.com/Tgaleano2725/GPI-PlanMaster</a>
+                                    </div>
+                                    <div class="contact-item">
+                                        <strong>Autor:</strong>
+                                        <span>Lic. Tobias González Galeano</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <strong>Institución:</strong>
+                                        <span>Universidad Autónoma de Asunción (UAA)</span>
+                                    </div>
+                                </div>
+                                <p class="support-note">
+                                    Este es un proyecto académico sin garantía de soporte continuo. Las respuestas a consultas 
+                                    se proporcionarán en la medida de lo posible y según disponibilidad del autor.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Sección de Aceptación -->
+                        <div class="terminos-acceptance">
+                            <div class="acceptance-box">
+                                <h3>✅ Aceptación de Términos</h3>
+                                <p>
+                                    Al utilizar, descargar, clonar o modificar este software, usted acepta estar vinculado por estos 
+                                    términos y condiciones. Si no está de acuerdo con estos términos, no utilice el software.
+                                </p>
+                                <p class="acceptance-date">
+                                    <strong>Vigencia:</strong> Estos términos están vigentes desde el 14 de octubre de 2025 y pueden 
+                                    actualizarse sin previo aviso. Se recomienda revisar esta sección periódicamente.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Licencia Completa -->
+                        <div class="terminos-license-full">
+                            <h3>📄 Texto Completo de la Licencia MIT</h3>
+                            <div class="license-full-box">
+                                <pre><code>MIT License
+
+Copyright (c) 2025 Tobias González Galeano - Universidad Autónoma de Asunción (UAA)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -224,12 +790,12 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Tobias González | Universidad Autónoma de Asunción (UAA)</p>
-            <p>Proyecto Final - INFO-783: Gestión de Proyectos Informáticos</p>
+            <p>Proyecto Final - INFO-783: Gestión de Proyectos Informáticos | v1.2.0</p>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
 </body>
 </html>
