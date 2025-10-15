@@ -76,9 +76,10 @@ GPI-PlanMaster/
 ├── README.md
 ├── KPI_DOCUMENTATION.md      # Documentación completa de KPIs
 ├── KPI_VALIDATION_CHECKLIST.md # Checklist de validación
+├── DEPLOYMENT_CHECKLIST.md   # Guía rápida de deployment
+├── GITHUB_PAGES_SETUP.md     # Configuración detallada GitHub Pages
 ├── PERFORMANCE.md            # Documentación de optimizaciones
-├── LICENSE                   # MIT License
-└── netlify.toml              # Configuración para Netlify
+└── LICENSE                   # MIT License
 ```
 
 ## 🛠️ Stack Tecnológico
@@ -171,36 +172,31 @@ open http://localhost:8000
 
 ## 📦 Deployment
 
-### GitHub Pages
+### GitHub Pages (Recomendado)
+
+Este proyecto está optimizado para GitHub Pages con deployment automático:
 
 ```bash
-# Configurar GitHub Pages en Settings > Pages
-# Branch: main
-# Folder: / (root)
+# 1. Habilita GitHub Pages en Settings > Pages
+# 2. Source: "GitHub Actions"
+# 3. Cada push a main despliega automáticamente
 ```
 
-### Netlify
+**URL del proyecto**: https://tgaleano2725.github.io/GPI-PlanMaster/
 
-1. **Arrastrar y Soltar**: Arrastra la carpeta del proyecto a Netlify
-2. **Git Integration**: Conecta tu repositorio de GitHub
-3. **Auto Deploy**: Los cambios se despliegan automáticamente
+Ver guías detalladas:
+- `DEPLOYMENT_CHECKLIST.md` - Setup rápido (5 minutos)
+- `GITHUB_PAGES_SETUP.md` - Guía completa
 
-```toml
-# netlify.toml ya incluido en el proyecto
-[build]
-  publish = "."
-  command = "echo 'No build required'"
-```
+### Alternativas
 
-### Vercel
-
+**Vercel**:
 ```bash
-# Instalar Vercel CLI
 npm i -g vercel
-
-# Deploy
 vercel
 ```
+
+**Netlify**: Arrastra la carpeta del proyecto a [Netlify Drop](https://app.netlify.com/drop)
 
 ## 🎨 Personalización
 
