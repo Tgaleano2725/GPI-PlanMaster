@@ -14,15 +14,16 @@ const SPRINTS = [
     { id: 6, nombre: 'Sprint 6', cu: 10, porcentaje: 16.67, pv: 21670000, avance: 40 }
 ];
 
-// Presupuesto por rol (plan) – coherente con el documento
+// Presupuesto por rol (plan) – coherente con el documento oficial
+// Tarifas calculadas: presupuesto_total / horas_estimadas_proyecto
 const ROLES_PLAN = [
-  { rol: "Project Manager",         plan_budget: 24000000,  rate: 120000 },
-  { rol: "Analista Funcional",      plan_budget: 20000000,  rate: 100000 },
-  { rol: "Desarrollador Backend",   plan_budget: 26000000,  rate: 110000 },
-  { rol: "Desarrollador Frontend",  plan_budget: 18000000,  rate:  95000 },
-  { rol: "QA / Tester",             plan_budget: 12000000,  rate:  85000 },
-  { rol: "Diseñador UX/UI",         plan_budget: 10000000,  rate:  80000 },
-  { rol: "DevOps / Infraestructura",plan_budget: 20020000,  rate: 110000 },
+  { rol: "Project Manager",         plan_budget: 24000000,  rate: 120000 },  // 18% - 200h
+  { rol: "Analista Funcional",      plan_budget: 20000000,  rate: 100000 },  // 15% - 200h
+  { rol: "Desarrollador Backend",   plan_budget: 26000000,  rate: 130000 },  // 20% - 200h
+  { rol: "Desarrollador Frontend",  plan_budget: 18000000,  rate:  90000 },  // 14% - 200h
+  { rol: "QA / Tester",             plan_budget: 12000000,  rate:  80000 },  // 9%  - 150h
+  { rol: "Diseñador UX/UI",         plan_budget: 10000000,  rate:  80000 },  // 8%  - 125h
+  { rol: "DevOps / Infraestructura",plan_budget: 20020000,  rate: 114400 },  // 16% - 175h
 ];
 
 // Horas planificadas por rol (se calculan automáticamente)
@@ -31,14 +32,14 @@ const ROLES_PLAN_WITH_HOURS = ROLES_PLAN.map(r => ({
   plan_hours: Math.round(r.plan_budget / r.rate)
 }));
 
-// Horas reales trabajadas por rol en cada sprint con datos realistas del proyecto
+// Horas reales trabajadas por rol en cada sprint - nombres actualizados
 const horasReales = {
-    1: { 'Project Manager': 18, 'Business Analyst': 25, 'Backend Developer': 35, 'Frontend Developer': 30, 'QA Engineer': 20, 'UX/UI Designer': 22, 'DevOps Engineer': 12 },
-    2: { 'Project Manager': 25, 'Business Analyst': 40, 'Backend Developer': 55, 'Frontend Developer': 50, 'QA Engineer': 35, 'UX/UI Designer': 30, 'DevOps Engineer': 18 },
-    3: { 'Project Manager': 28, 'Business Analyst': 45, 'Backend Developer': 68, 'Frontend Developer': 62, 'QA Engineer': 42, 'UX/UI Designer': 35, 'DevOps Engineer': 22 },
-    4: { 'Project Manager': 30, 'Business Analyst': 48, 'Backend Developer': 75, 'Frontend Developer': 70, 'QA Engineer': 50, 'UX/UI Designer': 38, 'DevOps Engineer': 28 },
-    5: { 'Project Manager': 26, 'Business Analyst': 42, 'Backend Developer': 58, 'Frontend Developer': 55, 'QA Engineer': 38, 'UX/UI Designer': 32, 'DevOps Engineer': 20 },
-    6: { 'Project Manager': 22, 'Business Analyst': 35, 'Backend Developer': 48, 'Frontend Developer': 45, 'QA Engineer': 30, 'UX/UI Designer': 28, 'DevOps Engineer': 16 }
+    1: { 'Project Manager': 18, 'Analista Funcional': 25, 'Desarrollador Backend': 35, 'Desarrollador Frontend': 30, 'QA / Tester': 20, 'Diseñador UX/UI': 22, 'DevOps / Infraestructura': 12 },
+    2: { 'Project Manager': 25, 'Analista Funcional': 40, 'Desarrollador Backend': 55, 'Desarrollador Frontend': 50, 'QA / Tester': 35, 'Diseñador UX/UI': 30, 'DevOps / Infraestructura': 18 },
+    3: { 'Project Manager': 28, 'Analista Funcional': 45, 'Desarrollador Backend': 68, 'Desarrollador Frontend': 62, 'QA / Tester': 42, 'Diseñador UX/UI': 35, 'DevOps / Infraestructura': 22 },
+    4: { 'Project Manager': 30, 'Analista Funcional': 48, 'Desarrollador Backend': 75, 'Desarrollador Frontend': 70, 'QA / Tester': 50, 'Diseñador UX/UI': 38, 'DevOps / Infraestructura': 28 },
+    5: { 'Project Manager': 26, 'Analista Funcional': 42, 'Desarrollador Backend': 58, 'Desarrollador Frontend': 55, 'QA / Tester': 38, 'Diseñador UX/UI': 32, 'DevOps / Infraestructura': 20 },
+    6: { 'Project Manager': 22, 'Analista Funcional': 35, 'Desarrollador Backend': 48, 'Desarrollador Frontend': 45, 'QA / Tester': 30, 'Diseñador UX/UI': 28, 'DevOps / Infraestructura': 16 }
 };
 
 // Exportar datos
