@@ -330,7 +330,7 @@ function crearBarraGantt(item, fechaProyectoInicio, diasTotalesProyecto, esCabec
     const width = (duracionDias / diasTotalesProyecto) * 100;
     
     // Ancho mínimo para barras pequeñas
-    const minWidthPercent = 0.8; // mínimo 0.8% del ancho total
+    const minWidthPercent = esCabecera ? 1.5 : 1.0; // mínimo 1.5% para cabeceras, 1% para actividades
     const adjustedWidth = Math.max(width, minWidthPercent);
     
     const color = item.faseColor || window.CronogramaUtils.obtenerColorFase(item.id);
@@ -342,17 +342,23 @@ function crearBarraGantt(item, fechaProyectoInicio, diasTotalesProyecto, esCabec
         : 'font-size: 0.875rem; padding-left: 1rem;';
     
     const barStyle = esCabecera
-        ? `left: ${left}%; width: ${adjustedWidth}%; min-width: 30px; background-color: ${color}; opacity: 0.75; height: 30px; font-weight: 700;`
-        : `left: ${left}%; width: ${adjustedWidth}%; min-width: 25px; background-color: ${color}; height: 24px;`;
+        ? `left: ${left}%; width: ${adjustedWidth}%; min-width: 40px; background-color: ${color}; opacity: 0.75; height: 30px; font-weight: 700;`
+        : `left: ${left}%; width: ${adjustedWidth}%; min-width: 30px; background-color: ${color}; height: 24px;`;
     
-    const duracionTexto = duracionDias > 0 ? `${duracionDias}d` : '';
+    // Solo mostrar duración si es >= 1 día y la barra es lo suficientemente ancha (más de 2% del total)
+    // Para barras pequeñas, mostrar en el tooltip en lugar del texto
+    const mostrarDuracion = duracionDias >= 1 && adjustedWidth > 2;
+    const duracionTexto = mostrarDuracion ? `${duracionDias}d` : '';
     const hitoIcono = esHito ? '🎯 ' : '';
+    
+    // Tooltip para mostrar información completa
+    const tooltip = `${item.nombre} (${duracionDias}d) - Inicio: ${item.fecha_inicio} | Fin: ${item.fecha_fin}`;
     
     return `
         <div class="gantt-row" ${esCabecera ? 'style="background: #f7fafc;"' : ''}>
             <div class="gantt-task-name" style="${nombreStyle}">${hitoIcono}${item.id} - ${item.nombre}</div>
             <div class="gantt-timeline">
-                <div class="gantt-bar" style="${barStyle}">
+                <div class="gantt-bar" style="${barStyle}" title="${tooltip}">
                     ${duracionTexto}
                 </div>
             </div>
