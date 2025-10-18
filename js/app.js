@@ -329,8 +329,8 @@ function crearBarraGantt(item, fechaProyectoInicio, diasTotalesProyecto, esCabec
     const left = (diasDesdeInicio / diasTotalesProyecto) * 100;
     const width = (duracionDias / diasTotalesProyecto) * 100;
     
-    // Ancho mínimo para barras pequeñas
-    const minWidthPercent = esCabecera ? 1.5 : 1.0; // mínimo 1.5% para cabeceras, 1% para actividades
+    // Ancho mínimo para barras pequeñas - aumentado para que quepa el texto
+    const minWidthPercent = esCabecera ? 2.0 : 1.5;
     const adjustedWidth = Math.max(width, minWidthPercent);
     
     const color = item.faseColor || window.CronogramaUtils.obtenerColorFase(item.id);
@@ -342,17 +342,15 @@ function crearBarraGantt(item, fechaProyectoInicio, diasTotalesProyecto, esCabec
         : 'font-size: 0.875rem; padding-left: 1rem;';
     
     const barStyle = esCabecera
-        ? `left: ${left}%; width: ${adjustedWidth}%; min-width: 40px; background-color: ${color}; opacity: 0.75; height: 30px; font-weight: 700;`
-        : `left: ${left}%; width: ${adjustedWidth}%; min-width: 30px; background-color: ${color}; height: 24px;`;
+        ? `left: ${left}%; width: ${adjustedWidth}%; min-width: 50px; background-color: ${color}; opacity: 0.75; height: 30px; font-weight: 700;`
+        : `left: ${left}%; width: ${adjustedWidth}%; min-width: 45px; background-color: ${color}; height: 24px;`;
     
-    // Solo mostrar duración si es >= 1 día y la barra es lo suficientemente ancha (más de 2% del total)
-    // Para barras pequeñas, mostrar en el tooltip en lugar del texto
-    const mostrarDuracion = duracionDias >= 1 && adjustedWidth > 2;
-    const duracionTexto = mostrarDuracion ? `${duracionDias}d` : '';
+    // Siempre mostrar la duración exacta en días
+    const duracionTexto = `${duracionDias}d`;
     const hitoIcono = esHito ? '🎯 ' : '';
     
     // Tooltip para mostrar información completa
-    const tooltip = `${item.nombre} (${duracionDias}d) - Inicio: ${item.fecha_inicio} | Fin: ${item.fecha_fin}`;
+    const tooltip = `${item.nombre} - Duración: ${duracionDias} día${duracionDias !== 1 ? 's' : ''} | ${item.fecha_inicio} al ${item.fecha_fin}`;
     
     return `
         <div class="gantt-row" ${esCabecera ? 'style="background: #f7fafc;"' : ''}>
